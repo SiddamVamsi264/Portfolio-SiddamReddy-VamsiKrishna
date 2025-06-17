@@ -134,16 +134,22 @@
 				</a>
 			  </li>
 			  
-			  <script>
+<script>
   function downloadResume() {
-    const link = document.createElement('a');
-    link.href = "https://raw.githubusercontent.com/SiddamVamsi264/Resume/main/VamsiKrishna%20Reddy%20-%20Data%20Analyst.pdf";
-    link.download = "Vamsi_Krishna_Reddy_Resume.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const userConfirmed = confirm("Do you want to download Vamsi's resume?");
+    if (userConfirmed) {
+      const link = document.createElement('a');
+      link.href = "https://raw.githubusercontent.com/SiddamVamsi264/Resume/main/VamsiKrishna%20Reddy%20-%20Data%20Analyst.pdf";
+      link.download = "Vamsi_Krishna_Reddy_Resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      // User canceled - do nothing
+    }
   }
 </script>
+
 
 			  
 			  <li class="nav-item"><a href="#experience-section" class="nav-link"><span> Work Experience</span></a></li>
@@ -462,18 +468,31 @@
     				</div>
 				</div>
     		</div>
-
-    		<div class="row justify-content-center mt-5">
+<div class="row justify-content-center mt-5">
   <div class="col-md-6 text-center ftco-animate">
     <p>
       <a href="https://raw.githubusercontent.com/SiddamVamsi264/Resume/main/VamsiKrishna%20Reddy%20-%20Data%20Analyst.pdf"
          class="btn btn-primary py-4 px-5"
-         target="_blank">
+         id="download-cv"
+         target="_blank"
+         onclick="return confirmDownload(event)">
         Download CV
       </a>
     </p>
   </div>
 </div>
+
+<script>
+  function confirmDownload(event) {
+    const userConfirmed = confirm("Do you want to download Vamsi's resume?");
+    if (!userConfirmed) {
+      event.preventDefault();  // Stop the link from opening
+      return false;
+    }
+    return true;  // Continue with the link action
+  }
+</script>
+
 
     	</div>
     </section>
@@ -705,24 +724,50 @@
 	          </div>
           </div>
           <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-phone2"></span>
-          		</div>
-          		<h3 class="mb-4">Contact Number</h3>
-	            <p><a href="tel://+14053320677">+ 1 405 269 3367</a></p>
-	          </div>
-          </div>
+  <div class="align-self-stretch box p-4 text-center">
+    <div class="icon d-flex align-items-center justify-content-center">
+      <span class="icon-phone2"></span>
+    </div>
+    <h3 class="mb-4">Contact Number</h3>
+    <p>
+      <a href="tel:+14053320677" 
+         onclick="return confirmCall()" 
+         style="cursor: pointer; text-decoration: underline; color: blue;">
+        +1 405 269 3367
+      </a>
+    </p>
+  </div>
+</div>
+
+<script>
+  function confirmCall() {
+    return confirm("Do you want to call +1 405 269 3367?");
+  }
+</script>
+
           <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-paper-plane"></span>
-          		</div>
-          		<h3 class="mb-4">Email Address</h3>
-	            <p><a href="mailto:siddamvamsi2025@gmail.com" target="_blank">siddamvamsi2025@gmail.com</a></p>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+  <div class="align-self-stretch box p-4 text-center">
+    <div class="icon d-flex align-items-center justify-content-center">
+      <span class="icon-paper-plane"></span>
+    </div>
+    <h3 class="mb-4">Email Address</h3>
+    <p>
+      <a href="mailto:siddamvamsi2025@gmail.com" 
+         onclick="return confirmEmailOpen()"
+         style="cursor:pointer; text-decoration: underline; color: blue;">
+        siddamvamsi2025@gmail.com
+      </a>
+    </p>
+  </div>
+</div>
+
+<script>
+  function confirmEmailOpen() {
+    return confirm("Do you want to open your email to send mail to Vamsi?");
+  }
+</script>
+
+  <div class="col-md-6 col-lg-3 d-flex ftco-animate">
   <div class="align-self-stretch box p-4 text-center">
     <div class="icon d-flex align-items-center justify-content-center">
       <span class="icon-globe"></span>
@@ -730,12 +775,25 @@
     <h3 class="mb-4">
       <a href="https://raw.githubusercontent.com/SiddamVamsi264/Resume/main/VamsiKrishna%20Reddy%20-%20Data%20Analyst.pdf" 
          target="_blank"
-         style="text-decoration: none; color: inherit;">
+         style="text-decoration: none; color: inherit;"
+         onclick="return confirmDownload(event);">
         Download Resume
       </a>
     </h3>
   </div>
 </div>
+
+<script>
+  function confirmDownload(event) {
+    const confirmed = confirm("Do you want to download Vamsi's resume?");
+    if (!confirmed) {
+      event.preventDefault();
+      return false;
+    }
+    return true;
+  }
+</script>
+
 
 
 
